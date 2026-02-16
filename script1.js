@@ -1,0 +1,80 @@
+let decision;
+do {
+    decision = prompt(`Que quieres hacer:
+1. Area del triangulo
+2. Area de un rectangulo
+3. Perimetro de un rectangulo
+4. Evaluar una expresion cuadratica (x^2 + 10x + 9)
+5. Informacion del desarrollador
+s. Salir`);
+
+    switch(decision) {
+        case "1":
+            calcularAreaTriangulo();
+            break;
+        case "2":
+            calcularAreaRectangulo();
+            break;
+        case "3":
+            calcularPerimetroRectangulo();
+            break;
+        case "4":
+            evaluarExpresionCuadratica();
+            break;
+        case "5":
+            alert("Autor: Jose Fernando Buelna Espinoza");
+            console.log("Autor: Jose Fernando Buelna Espinoza");
+            break;
+        case "s":
+            alert("Saliendo del programa...");
+            break;
+        default:
+            alert("Opcion no valida, intente de nuevo.");
+    }
+} while (decision !== "s");
+
+function calcularAreaTriangulo() {
+    let base = parseFloat(prompt("Ingrese la base del triangulo: "));
+    if (!validarDato(base)) return;
+    let altura = parseFloat(prompt("Ingrese la altura del triangulo: "));
+    if (!validarDato(altura)) return;
+    let areaTriangulo = (base * altura) / 2;
+    alert("El area del triangulo es: " + areaTriangulo);
+    console.log("El area del triangulo es: " + areaTriangulo);
+}
+
+function calcularAreaRectangulo() {
+    let baseRectangulo = parseFloat(prompt("Ingrese la base del rectangulo: "));
+    if (!validarDato(baseRectangulo)) return;
+    let alturaRectangulo = parseFloat(prompt("Ingrese la altura del rectangulo: "));
+    if (!validarDato(alturaRectangulo)) return;
+    let areaRectangulo = baseRectangulo * alturaRectangulo;
+    alert("El area del rectangulo es: " + areaRectangulo);
+    console.log("El area del rectangulo es: " + areaRectangulo);
+}
+
+function calcularPerimetroRectangulo() {
+    let basePerimetro = parseFloat(prompt("Ingrese la base del rectangulo: "));
+    if (!validarDato(basePerimetro)) return;
+    let alturaPerimetro = parseFloat(prompt("Ingrese la altura del rectangulo: "));
+    if (!validarDato(alturaPerimetro)) return;
+    let perimetroRectangulo = 2 * (basePerimetro + alturaPerimetro);
+    alert("El perimetro del rectangulo es: " + perimetroRectangulo);
+    console.log("El perimetro del rectangulo es: " + perimetroRectangulo);
+}
+
+function evaluarExpresionCuadratica() {
+    let x = parseFloat(prompt("Ingrese el valor de x: "));
+    if (!validarDato(x)) return;
+    let resultado = (x * x) + (10 * x) + 9;
+    alert("El resultado de la expresion cuadratica es: " + resultado);
+    console.log("El resultado de la expresion cuadratica es: " + resultado);
+}
+
+function validarDato(dato) {
+    if (isNaN(dato)) {
+        alert("Valor invalido");
+        return false;
+    }
+    return true;
+}
